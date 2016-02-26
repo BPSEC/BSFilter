@@ -9,6 +9,7 @@
 
 var links = document.links
 
-for (var i = 0; i < links.length; i++) {
+for (var i = 0; i < links.length; i++)
+{
      //[i].setAttribute('style', 'color:#fff;')
 }
