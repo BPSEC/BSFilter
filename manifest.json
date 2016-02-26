@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+
+  "name": "BSFilter",
+  "description": "Browser extension for protecting and hugging your computer and data",
+  "version": "0.0.1",
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["main.js"],
+      "run_at": "document_end"
+
+    }
+  ],
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "<all_urls>"
+  ]
+}
