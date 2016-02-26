@@ -11,5 +11,9 @@ var links = document.links
 
 for (var i = 0; i < links.length; i++)
 {
-     //[i].setAttribute('style', 'color:#fff;')
+     //To change all link colors to white (for trolling etc..): [i].setAttribute('style', 'color:#fff;')
+     // The line above totally expresses how tired I am right now. Should be cleaned up tomorrow
+
+     
+
 }
