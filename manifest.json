@@ -17,10 +17,5 @@
     "activeTab",
     "tabs",
     "<all_urls>",
-    "webRequest",
-    "webRequestBlocking"
   ],
-  "background": {
-    "scripts": ["background.js"]
-  }
 }
