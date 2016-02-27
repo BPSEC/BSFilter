@@ -14,6 +14,7 @@ xmlHttp.open( "GET", "https://api.xforce.ibmcloud.com/auth/anonymousToken", fals
 xmlHttp.send( null );
 var token = JSON.parse(xmlHttp.responseText).token;
 
+//TODO: Do link filtering like cut down those with # ending but same url
 var links = document.links
 
 
@@ -65,18 +66,19 @@ for (var i = 0; i < links.length; i++)
 
 
        // Per sec sample malware-infecter website. DON'T OPEN THE SITE ITSELF!!
-       makeRequest('GET', 'https://api.xforce.ibmcloud.com/url/hpareyouhereqq.com')
+       makeRequest('GET', 'https://api.xforce.ibmcloud.com/url/' + links[i].href)
         .then(function (r)
         {
           console.log(r.url)
           console.log(r.response);
           links = document.getElementsByTagName("a");
-
+          //TODO: DO something with this mess!!
           for(var i = 0; i < links.length; i++)
           {
             if( links[i].href === r.url )
             {
               console.log(links[i])
+              links[i].setAttribute('style', 'color:#38BD21;')
               return;
             }
           }
@@ -87,6 +89,6 @@ for (var i = 0; i < links.length; i++)
           console.error('ERROR! ', err.statusText);
         });
 
-      
+
 
 }
