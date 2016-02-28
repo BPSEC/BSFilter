@@ -65,21 +65,35 @@ for (var i = 0; i < links.length; i++)
      // The line above totally expresses how tired I am right now. Should be cleaned up tomorrow
 
 
-       // Per sec sample malware-infecter website. DON'T OPEN THE SITE ITSELF!!
+
        makeRequest('GET', 'https://api.xforce.ibmcloud.com/url/' + links[i].href)
         .then(function (r)
         {
-          console.log(r.url)
-          console.log(r.response);
+          // These for testing too:
+          // console.log(r.url)
+          // console.log(r.response)
+          resp = JSON.parse(r.response)
           links = document.getElementsByTagName("a");
           //TODO: DO something with this mess!!
           for(var i = 0; i < links.length; i++)
           {
-            if( links[i].href === r.url )
+            // For testing: console.log(links[i].href + ' -- ' + 'https://api.xforce.ibmcloud.com/url/' + r.url)
+            if( 'https://api.xforce.ibmcloud.com/url/' + links[i].href === r.url )
             {
-              console.log(links[i])
-              links[i].setAttribute('style', 'color:#38BD21;')
-              return;
+              // TODO: Popup and an alert to confirm navigation if links are yellow or red
+              if(resp.result.score > 3)
+              {
+                console.log(links[i])
+                // set it yellow to indicate problems
+                links[i].setAttribute('style', 'color:#E0C661;')
+                return;
+              }
+              else if (resp.result.score >7) {
+                console.log(links[i])
+                // set it red to indicate DANGER!
+                links[i].setAttribute('style', 'color:#BD3D3D;')
+                return;
+              }
             }
           }
         }
