@@ -85,13 +85,13 @@ for (var i = 0; i < links.length; i++)
               {
                 console.log(links[i])
                 // set it yellow to indicate problems
-                links[i].setAttribute('style', 'color:#E0C661;')
+                links[i].setAttribute('style', 'color:#E0C661;border: solid 1px #E0C661')
                 return;
               }
               else if (resp.result.score >7) {
                 console.log(links[i])
                 // set it red to indicate DANGER!
-                links[i].setAttribute('style', 'color:#BD3D3D;')
+                links[i].setAttribute('style', 'color:#BD3D3D;border: solid 1px #BD3D3D')
                 return;
               }
             }
